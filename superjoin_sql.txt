@@ -1,0 +1,39 @@
+
+CREATE DATABASE new_db;
+
+
+USE new_db;
+
+-- Create a new users table without AUTO_INCREMENT
+CREATE TABLE cust (
+    id INT AUTO_INCREMENT PRIMARY KEY,  
+    name VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    occupation VARCHAR(255) NOT NULL,
+    last_modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_cust (name, age, city, occupation)
+);
+
+select * from cust;
+
+INSERT INTO cust (name, age, city, occupation) VALUES ('Nani', 38, 'Bangalore', 'cricket Selector');
+INSERT INTO cust (name, age, city, occupation) VALUES ('tejaswini', 15, 'pune', 'criminal lawyer');
+INSERT INTO cust (name, age, city, occupation) VALUES ('manobhi', 55, 'goa', 'programmer');
+
+DELETE FROM cust WHERE name = 'tejaswini' AND age = 15 AND city = 'pune' AND occupation = 'criminal lawyer';
+
+
+
+
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+
+
+
+
+
+
+
